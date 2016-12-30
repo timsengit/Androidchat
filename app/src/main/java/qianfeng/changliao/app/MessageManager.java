@@ -1,12 +1,13 @@
 package qianfeng.changliao.app;
 
+import android.os.Handler;
 import android.os.Looper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import android.os.Handler;
+
 import qianfeng.changliao.beans.Conversation;
 import qianfeng.changliao.beans.MessageBean;
 import qianfeng.changliao.utils.Logutils;
@@ -31,6 +32,7 @@ public class MessageManager {
 
 	}
 
+	//单例
 	public static MessageManager getInstance(){
 
 		if (Instance == null){

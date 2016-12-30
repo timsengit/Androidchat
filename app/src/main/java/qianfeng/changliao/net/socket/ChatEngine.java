@@ -9,7 +9,6 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
-import java.util.Iterator;
 import java.util.Set;
 
 import qianfeng.changliao.net.socket.protocol.ChatMessage;
@@ -38,7 +37,7 @@ public class ChatEngine {
 
 	private Selector mSelector;
 
-	private String SERVER_ADDR = "192.168.57.1";
+	private String SERVER_ADDR = "192.168.105.140";
 
 	private int SERVER_PORT = 9999;
 

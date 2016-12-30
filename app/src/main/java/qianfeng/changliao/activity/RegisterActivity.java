@@ -1,9 +1,6 @@
 package qianfeng.changliao.activity;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,13 +19,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import qianfeng.changliao.R;
-import qianfeng.changliao.app.BroadcastAction;
 import qianfeng.changliao.app.UserManager;
 import qianfeng.changliao.net.http.HttpApi;
 import qianfeng.changliao.net.http.VolleyRequest;
-import qianfeng.changliao.net.socket.ChannelMessage;
-import qianfeng.changliao.net.socket.ChatEngine;
-import qianfeng.changliao.net.socket.protocol.ProtocolHandler;
 import qianfeng.changliao.utils.Logutils;
 
 import static com.android.volley.Request.Method.POST;
@@ -99,6 +92,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
 	//用户登录
 	private void requestRegister(final String username,final String passwd){
+		Logutils.logd("requestRegister->");
 		StringRequest request = new StringRequest(
 				POST,
 				HttpApi.API_REG,
@@ -109,9 +103,11 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 						JSONObject json = JSON.parseObject(response);
 
 						if (json != null){
-							if (json.getIntValue("code") !=0)return;
-							JSONObject result = json.getJSONObject("result");
 
+							if (json.getString("code").equals('0'))return;
+                            Logutils.logd("json: "+json.getString("code"));
+							JSONObject result = json.getJSONObject("result");
+                            Logutils.logd("result: "+result);
 
 							if (result == null)return;
 							String account = result.getString("account");

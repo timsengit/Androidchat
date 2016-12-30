@@ -5,12 +5,15 @@ package qianfeng.changliao.net.http;
  */
 public class HttpApi {
 
-	private static final String API_ROOT = "http://192.168.57.1:8080";
+	//花生壳
+//	private static final String API_ROOT = "http://tim188.6655.la:11989";
+	//路由
+	private static final String API_ROOT = "http://tinm.tpddns.cn:7410";
 	//登录
-	public static final String API_LOGIN = API_ROOT+"/user/login";
-	public static final String API_REG = API_ROOT+"/user/register";
+	public static final String API_LOGIN = API_ROOT+"/front/user/login";
+	public static final String API_REG = API_ROOT+"/front/user/register";
 	//获取好友
-	public static final String API_ALL_USER = API_ROOT+"/user/friends";
+	public static final String API_ALL_USER = API_ROOT+"/front/user/friends";
 
 
 

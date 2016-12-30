@@ -1,9 +1,7 @@
 package qianfeng.changliao.activity;
 
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,14 +20,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import qianfeng.changliao.R;
-import qianfeng.changliao.app.BroadcastAction;
 import qianfeng.changliao.app.UserManager;
-import qianfeng.changliao.beans.ChatUser;
 import qianfeng.changliao.net.http.HttpApi;
 import qianfeng.changliao.net.http.VolleyRequest;
-import qianfeng.changliao.net.socket.ChannelMessage;
-import qianfeng.changliao.net.socket.ChatEngine;
-import qianfeng.changliao.net.socket.protocol.ProtocolHandler;
 import qianfeng.changliao.utils.Logutils;
 
 import static com.android.volley.Request.Method.POST;
@@ -101,6 +94,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
 	//用户登录
 	private void requestLogin(final String account,final String passwd){
+
+		//跳转
+		startActivity(new Intent(LoginActivity.this,HomeActivity.class));
+
+
 		StringRequest request = new StringRequest(
 				POST,
 				HttpApi.API_LOGIN,
